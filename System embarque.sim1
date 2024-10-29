@@ -6,13 +6,13 @@
 
 <item itemtype="Servo" CircId="Servo-237" mainComp="false" Show_id="true" Show_Val="false" Pos="-60,-188" rotation="270" hflip="1" vflip="1" label="Servo-237" idLabPos="-16,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" Speed="0.2 _s/60º" MinPulse="1000 _µs" MaxPulse="2000 _µs" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" />
 
-<item itemtype="LDR" CircId="LDR-238" mainComp="false" Show_id="false" Show_Val="false" Pos="484,-92" rotation="270" hflip="1" vflip="1" label="LDR-238" idLabPos="-16,-24" labelrot="0" valLabPos="-16,30" valLabRot="0" Lux="342 Lux" Min_Lux="1e-12 Lux" Max_Lux="1000 Lux" Dial_Step="0 Lux" Gamma="0.8582" R1="127410 Ω" Slider="false" Scale="1" />
+<item itemtype="LDR" CircId="LDR-238" mainComp="false" Show_id="false" Show_Val="false" Pos="484,-92" rotation="270" hflip="1" vflip="1" label="LDR-238" idLabPos="-16,-24" labelrot="0" valLabPos="-16,30" valLabRot="0" Lux="339 Lux" Min_Lux="1e-12 Lux" Max_Lux="1000 Lux" Dial_Step="0 Lux" Gamma="0.8582" R1="127410 Ω" Slider="false" Scale="1" />
 
-<item itemtype="Mosfet" CircId="Mosfet-240" mainComp="false" Show_id="false" Show_Val="false" Pos="-88,-8" rotation="90" hflip="1" vflip="1" label="Mosfet-240" idLabPos="18,0" labelrot="0" valLabPos="-16,20" valLabRot="0" P_Channel="false" Depletion="false" RDSon="1 Ω" Threshold="3 V" />
+<item itemtype="Mosfet" CircId="Mosfet-240" mainComp="false" Show_id="false" Show_Val="false" Pos="-92,0" rotation="450" hflip="1" vflip="1" label="Mosfet-240" idLabPos="18,0" labelrot="0" valLabPos="-16,20" valLabRot="0" P_Channel="false" Depletion="false" RDSon="1 Ω" Threshold="3 V" />
 
 <item itemtype="Voltage Source" CircId="Voltage Source-242" mainComp="false" ShowProp="MaxValue" Show_id="false" Show_Val="true" Pos="-312,-16" rotation="0" hflip="1" vflip="1" label="Voltage Source-242" idLabPos="-32,-48" labelrot="0" valLabPos="-8,30" valLabRot="0" Running="true" Value_Volt="12 V" MaxValue="12 V" MinValue="0 V" />
 
-<item itemtype="TextComponent" CircId="TextComponent-243" mainComp="false" Show_id="false" Show_Val="false" Pos="-276,-168" rotation="0" hflip="1" vflip="1" label="TextComponent-243" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="-3 _px" Border="0 _px" Color="#ff0000" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000000" Font_Size="11 _px" Fixed_Width="false" Text="Capteur humidité et température" />
+<item itemtype="TextComponent" CircId="TextComponent-243" mainComp="false" Show_id="false" Show_Val="false" Pos="-272,-120" rotation="0" hflip="1" vflip="1" label="TextComponent-243" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="-3 _px" Border="0 _px" Color="#ff0000" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000000" Font_Size="11 _px" Fixed_Width="false" Text="Capteur humidité et température" />
 
 <item itemtype="TextComponent" CircId="TextComponent-244" mainComp="false" Show_id="false" Show_Val="false" Pos="-380,-76" rotation="0" hflip="1" vflip="1" label="TextComponent-244" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="-3 _px" Border="0 _px" Color="#ff0000" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000000" Font_Size="11 _px" Fixed_Width="false" Text="External Power Supply" />
 
@@ -36,13 +36,19 @@
 
 <item itemtype="Resistor" CircId="Resistor-256" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="256,-84" rotation="540" hflip="1" vflip="1" label="Resistor-256" idLabPos="-12,-20" labelrot="0" valLabPos="-7.51325,-22.1073" valLabRot="0" Resistance="10 Ω" />
 
+<item itemtype="TextComponent" CircId="TextComponent-262" mainComp="false" Show_id="false" Show_Val="false" Pos="-124,-28" rotation="0" hflip="1" vflip="1" label="TextComponent-262" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="-3 _px" Border="0 _px" Color="#ffffff" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000000" Font_Size="9 _px" Fixed_Width="false" Text="Gate" />
+
+<item itemtype="TextComponent" CircId="TextComponent-264" mainComp="false" Show_id="false" Show_Val="false" Pos="-144,16" rotation="0" hflip="1" vflip="1" label="TextComponent-264" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="-3 _px" Border="0 _px" Color="#ffffff" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000000" Font_Size="13 _px" Fixed_Width="false" Text="drain" />
+
+<item itemtype="TextComponent" CircId="TextComponent-265" mainComp="false" Show_id="false" Show_Val="false" Pos="-68,4" rotation="0" hflip="1" vflip="1" label="TextComponent-265" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="-3 _px" Border="0 _px" Color="#ffffff" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000000" Font_Size="13 _px" Fixed_Width="false" Text="source" />
+
 <item itemtype="Node" CircId="Node-252" mainComp="false" Pos="-16,-40" />
 
 <item itemtype="Node" CircId="Node-259" mainComp="false" Pos="280,-108" />
 
 <item itemtype="Node" CircId="Node-260" mainComp="false" Pos="212,-92" />
 
-<item itemtype="Connector" uid="Connector-433" startpinid="Mosfet-240-Sour" endpinid="Node-252-0" pointList="-104,0,-16,0,-16,-40" />
+<item itemtype="Connector" uid="Connector-433" startpinid="Mosfet-240-Sour" endpinid="Node-252-0" pointList="-108,8,-16,8,-16,-40" />
 
 <item itemtype="Connector" uid="Connector-437" startpinid="Resistor-236-lPin" endpinid="Mega-251-9" pointList="-88,-56,-88,-84,68,-84" />
 
@@ -54,13 +60,13 @@
 
 <item itemtype="Connector" uid="Connector-444" startpinid="Voltage Source-242-outPin" endpinid="DcMotor-255-lPin" pointList="-284,0,-228,0" />
 
-<item itemtype="Connector" uid="Connector-446" startpinid="Mosfet-240-Gate" endpinid="Resistor-236-rPin" pointList="-88,-24,-88,-24" />
+<item itemtype="Connector" uid="Connector-446" startpinid="Mosfet-240-Gate" endpinid="Resistor-236-rPin" pointList="-92,-16,-92,-24,-88,-24" />
 
 <item itemtype="Connector" uid="Connector-447" startpinid="Servo-237-in2" endpinid="Mega-251-10" pointList="-44,-140,-44,-76,68,-76" />
 
 <item itemtype="Connector" uid="Connector-449" startpinid="Servo-237-in1" endpinid="Node-252-1" pointList="-60,-140,-60,-40,-16,-40" />
 
-<item itemtype="Connector" uid="Connector-450" startpinid="Mosfet-240-Dren" endpinid="DcMotor-255-rPin" pointList="-72,0,-148,0" />
+<item itemtype="Connector" uid="Connector-450" startpinid="Mosfet-240-Dren" endpinid="DcMotor-255-rPin" pointList="-76,8,-148,8,-148,0" />
 
 <item itemtype="Connector" uid="Connector-453" startpinid="LDR-238-lPin" endpinid="Mega-251-5V00" pointList="484,-76,212,-76" />
 

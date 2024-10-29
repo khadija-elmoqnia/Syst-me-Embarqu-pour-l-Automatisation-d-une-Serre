@@ -3,10 +3,10 @@
 
 #define DHTPIN 11        // Pin numérique où le DHT22 est connecté
 #define DHTTYPE DHT22    // Définir le type de capteur DHT utilisé
-#define MOSFET_PIN 9    // Pin de contrôle du MOSFET pour la pompe d'arrosage
+#define MOSFET_PIN 9     // Pin de contrôle du MOSFET pour la pompe d'arrosage
 #define PHOTO_PIN A0     // Pin pour la photorésistance
 #define LED_PIN 2        // Pin pour la LED
-#define SERVO_PIN 10      // Pin pour le servo-moteur de ventilation
+#define SERVO_PIN 10     // Pin pour le servo-moteur de ventilation
 
 DHT dht(DHTPIN, DHTTYPE);
 Servo myServo;
@@ -14,7 +14,7 @@ Servo myServo;
 void setup() {
     Serial.begin(9600);            // Initialiser la communication série
     dht.begin();                   // Initialiser le capteur DHT22
-    pinMode(MOSFET_PIN, OUTPUT);  // Configurer la pin du MOSFET comme sortie
+    pinMode(MOSFET_PIN, OUTPUT);   // Configurer la pin du MOSFET comme sortie
     pinMode(LED_PIN, OUTPUT);      // Configurer la pin de la LED comme sortie
     myServo.attach(SERVO_PIN);     // Attacher le servo-moteur à la pin définie
     myServo.write(0);              // Position initiale du servo (fermé)
@@ -38,24 +38,30 @@ void loop() {
     Serial.print(temperature);
     Serial.println(" °C");
 
-    // Contrôler le moteur DC pour l'arrosage basé sur l'humidité du sol
-    if (humidity < 40) { // Si l'humidité est inférieure à 40%
-        analogWrite(MOSFET_PIN, 255); // Activer la pompe d'arrosage
-        Serial.println("Pompe d'arrosage: ACTIVÉE");
+    // Contrôle gradué de la pompe d'arrosage en fonction de l'humidité
+    int pumpIntensity;
+    if (humidity < 40) {
+        pumpIntensity = map(humidity, 0, 40, 255, 0); // Plus faible humidité = intensité plus forte
+        pumpIntensity = constrain(pumpIntensity, 0, 255); // Limiter entre 0 et 255
+        analogWrite(MOSFET_PIN, pumpIntensity); // Ajuster l'intensité de la pompe
+        Serial.print("Pompe d'arrosage activée avec intensité: ");
+        Serial.println(pumpIntensity);
     } else {
-        analogWrite(MOSFET_PIN, 0); // Éteindre la pompe
+        analogWrite(MOSFET_PIN, 0); // Éteindre la pompe si humidité suffisante
         Serial.println("Pompe d'arrosage: ÉTEINTE");
     }
 
-    // Contrôler la ventilation en fonction de la température
-    int servoPosition; // Variable pour stocker la position du servo
-    if (temperature > 25) { // Si la température est supérieure à 25°C
-        servoPosition = 90; // Ouvrir le ventilateur (position 90°)
+    // Contrôle gradué du ventilateur en fonction de la température
+    int servoPosition;
+    if (temperature > 20) { // Si la température est supérieure à 20°C
+        servoPosition = map(temperature, 20, 40, 0, 90); // Ajuste l'angle de 0° à 90° entre 20°C et 40°C
+        servoPosition = constrain(servoPosition, 0, 90); // Limite entre 0 et 90 degrés
         myServo.write(servoPosition);
-        Serial.println("Ventilateur: OUVERT");
+        Serial.print("Ventilateur ouvert à: ");
+        Serial.print(servoPosition);
+        Serial.println("°");
     } else {
-        servoPosition = 0;  // Fermer le ventilateur (position 0°)
-        myServo.write(servoPosition);
+        myServo.write(0);  // Fermer le ventilateur si température est inférieure à 20°C
         Serial.println("Ventilateur: FERMÉ");
     }
 
@@ -65,7 +71,7 @@ void loop() {
     Serial.println(photoValue);
 
     // Contrôler la LED en fonction de la luminosité
-    int ledBrightness; // Variable pour stocker la luminosité de la LED
+    int ledBrightness;
     if (photoValue < 200) {
         ledBrightness = 255; // Allumer la LED (environnement sombre)
         analogWrite(LED_PIN, ledBrightness);
@@ -75,18 +81,11 @@ void loop() {
         analogWrite(LED_PIN, ledBrightness);
         Serial.println("LED: ÉTEINTE (lumière suffisante)");
     } else {
-        // Ajuster la luminosité de la LED en fonction de la photorésistance
         ledBrightness = map(photoValue, 200, 500, 255, 0); // Ajuster la luminosité
-        analogWrite(LED_PIN, ledBrightness); // Écrire la valeur PWM à la LED
+        analogWrite(LED_PIN, ledBrightness);
         Serial.print("LED: INTENSITÉ AJUSTÉE à ");
         Serial.println(ledBrightness);
     }
-
-    // Afficher l'état du servo, du moteur DC et de l'intensité de la LED
-    Serial.print("Position du servo: ");
-    Serial.print(servoPosition);
-    Serial.print("°\tIntensité de la LED: ");
-    Serial.println(ledBrightness);
 
     delay(100); // Petite pause pour la stabilité
 }
